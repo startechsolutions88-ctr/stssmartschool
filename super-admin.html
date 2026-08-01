@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Admin - Star Tech Solutions Limited</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>STS Smart School</h2>
+        <span>Star Tech Solutions</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="active"><a href="super-admin.html">Manage Schools</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h3>Super Admin Console</h3>
+        <div class="user-profile">
+          <span class="user-badge" id="userRoleDisplay">SUPER ADMIN</span>
+          <span id="userNameDisplay">Star Tech Solutions</span>
+          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+        </div>
+      </header>
+
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <h3>Total Registered Schools</h3>
+          <div class="number" id="saTotalSchools">0</div>
+        </div>
+        <div class="metric-card teachers">
+          <h3>Pending Approvals</h3>
+          <div class="number" id="saPendingSchools">0</div>
+        </div>
+        <div class="metric-card classes">
+          <h3>Active Schools</h3>
+          <div class="number" id="saActiveSchools">0</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <div class="card-header-actions">
+          <h3>Registered Institutions</h3>
+          <input type="text" id="saSearchSchool" class="form-control" style="width: 250px;" placeholder="Search school or district...">
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>School Name</th>
+                <th>Type</th>
+                <th>Location</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="saSchoolsTableBody">
+              <!-- Dynamically populated via js/super-admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/super-admin.js"></script>
+</body>
+</html>

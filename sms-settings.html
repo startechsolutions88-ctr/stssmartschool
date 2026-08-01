@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Gateway Settings - STS Smart School</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>STS Smart School</h2>
+        <span>Star Tech Solutions</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="results.html">Results Management</a></li>
+        <li><a href="reports.html">Report Cards</a></li>
+        <li><a href="sms-balance.html">SMS Credit Balance</a></li>
+        <li><a href="sms-history.html">SMS Delivery Logs</a></li>
+        <li class="active"><a href="sms-settings.html">SMS Configuration</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h3>SMS Gateway Credentials</h3>
+        <div class="user-profile">
+          <span class="user-badge" id="userRoleDisplay">ADMIN</span>
+          <span id="userNameDisplay">User</span>
+          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+        </div>
+      </header>
+
+      <section class="content-card">
+        <h3>API Provider Configuration</h3>
+        <form id="smsSettingsForm" style="margin-top: 15px;">
+          <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="smsEnabled" style="width: 20px; height: 20px;" checked>
+            <label for="smsEnabled" style="margin: 0;">Enable Automatic SMS Results Dispatch</label>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="provider">SMS Provider</label>
+              <select id="provider" class="form-control">
+                <option value="AfricasTalking">Africa's Talking / Local Zambian Aggregator</option>
+                <option value="Twilio">Twilio Gateway</option>
+                <option value="SMSZambia">SMS Zambia Direct</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="senderName">Sender ID (Max 11 Chars)</label>
+              <input type="text" id="senderName" class="form-control" maxlength="11" placeholder="MAGOYE SEC">
+            </div>
+            <div class="form-group">
+              <label for="apiKey">API Key / Secret</label>
+              <input type="password" id="apiKey" class="form-control" placeholder="••••••••••••••••">
+            </div>
+            <div class="form-group">
+              <label for="apiUserToken">API Username / Account SID</label>
+              <input type="text" id="apiUserToken" class="form-control" placeholder="e.g. sandbox or ACxxxxx">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Save Credentials</button>
+        </form>
+      </section>
+
+      <section class="content-card">
+        <h3>Gateway Connection Test</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="testPhone">Target Phone Number</label>
+            <input type="tel" id="testPhone" class="form-control" placeholder="+260...">
+          </div>
+        </div>
+        <button id="testSmsBtn" class="btn btn-secondary">Send Test SMS</button>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/sms.js"></script>
+</body>
+</html>

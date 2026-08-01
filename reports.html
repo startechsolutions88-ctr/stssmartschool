@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printable Report Cards - STS Smart School</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar no-print">
+      <div class="sidebar-header">
+        <h2>STS Smart School</h2>
+        <span>Star Tech Solutions</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <li><a href="results.html">Results Management</a></li>
+        <li class="active"><a href="reports.html">Report Cards</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar no-print">
+        <h3>Report Card Generator</h3>
+        <div class="user-profile">
+          <span class="user-badge" id="userRoleDisplay">ADMIN</span>
+          <span id="userNameDisplay">User</span>
+          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+        </div>
+      </header>
+
+      <section class="content-card no-print">
+        <h3>Search Student Results</h3>
+        <div class="form-grid" style="margin-top: 15px;">
+          <div class="form-group">
+            <label for="searchReportStudentId">Student ID</label>
+            <input type="text" id="searchReportStudentId" class="form-control" placeholder="e.g. STS-2026-001" required>
+          </div>
+          <div class="form-group">
+            <label for="reportTerm">Term</label>
+            <select id="reportTerm" class="form-control">
+              <option value="Term 1">Term 1</option>
+              <option value="Term 2">Term 2</option>
+              <option value="Term 3">Term 3</option>
+            </select>
+          </div>
+        </div>
+        <button id="generateReportBtn" class="btn btn-primary" style="margin-top: 10px;">Generate Report</button>
+      </section>
+
+      <!-- Printable Document Output Section -->
+      <section id="reportCardOutput" class="hidden">
+        <div class="no-print text-right" style="margin-bottom: 15px;">
+          <button onclick="window.print()" class="btn btn-secondary">Print Official Report Card</button>
+        </div>
+
+        <div class="report-card-container">
+          <div class="report-header">
+            <h2>STS SMART SCHOOL</h2>
+            <p style="font-size: 0.85rem; font-weight: bold;">STAR TECH SOLUTIONS LIMITED</p>
+            <p style="font-size: 0.75rem;"><i>"Global Tech Starts Here - Your Tech, Our Care"</i></p>
+            <h4>OFFICIAL ACADEMIC REPORT CARD</h4>
+          </div>
+
+          <div class="report-meta">
+            <div><strong>Student Name:</strong> <span id="rptName">-</span></div>
+            <div><strong>Student ID:</strong> <span id="rptId">-</span></div>
+            <div><strong>Class:</strong> <span id="rptClass">-</span></div>
+            <div><strong>Term:</strong> <span id="rptTerm">-</span></div>
+          </div>
+
+          <table class="data-table" style="margin-bottom: 20px;">
+            <thead>
+              <tr>
+                <th>Subject Name</th>
+                <th>Score (%)</th>
+                <th>Grade</th>
+                <th>Performance Remark</th>
+              </tr>
+            </thead>
+            <tbody id="rptTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 15px; font-weight: bold;">
+            <div>Total Score: <span id="rptTotalMarks">0</span></div>
+            <div>Overall Average: <span id="rptAverage">0%</span></div>
+          </div>
+
+          <div class="approval-section">
+            <div>
+              <div class="signature-line">Class Teacher's Signature</div>
+            </div>
+            <div>
+              <div class="signature-line">Head Teacher Approval & Stamp</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

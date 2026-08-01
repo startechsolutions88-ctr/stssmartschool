@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Management - STS Smart School</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>STS Smart School</h2>
+        <span>Star Tech Solutions</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li class="active"><a href="teachers.html">Teachers</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <li><a href="results.html">Results Management</a></li>
+        <li><a href="reports.html">Report Cards</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h3>Teacher Management</h3>
+        <div class="user-profile">
+          <span class="user-badge" id="userRoleDisplay">ADMIN</span>
+          <span id="userNameDisplay">User</span>
+          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+        </div>
+      </header>
+
+      <section class="content-card">
+        <h3>Add New Teacher</h3>
+        <form id="teacherForm" style="margin-top: 15px;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="teacherName">Full Name</label>
+              <input type="text" id="teacherName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="teacherEmail">Email Address</label>
+              <input type="email" id="teacherEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="teacherSubject">Primary Subject</label>
+              <input type="text" id="teacherSubject" class="form-control" placeholder="e.g. Mathematics" required>
+            </div>
+            <div class="form-group">
+              <label for="teacherClass">Assigned Class</label>
+              <select id="teacherClass" class="form-control" required>
+                <!-- Populated via App Logic -->
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Register Teacher</button>
+        </form>
+      </section>
+
+      <section class="content-card">
+        <h3>Teaching Staff Directory</h3>
+        <div class="table-responsive" style="margin-top: 15px;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Teacher Name</th>
+                <th>Email</th>
+                <th>Assigned Subject</th>
+                <th>Assigned Class</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="teacherTableBody">
+              <!-- Dynamically populated via Firestore -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

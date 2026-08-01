@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results Entry - STS Smart School</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>STS Smart School</h2>
+        <span>Star Tech Solutions</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li class="active"><a href="results.html">Results Management</a></li>
+        <li><a href="reports.html">Report Cards</a></li>
+        <li><a href="sms-balance.html">SMS Credit Balance</a></li>
+        <li><a href="sms-history.html">SMS Delivery Logs</a></li>
+        <li><a href="sms-settings.html">SMS Configuration</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h3>Academic Results Management</h3>
+        <div class="user-profile">
+          <span class="user-badge" id="userRoleDisplay">TEACHER</span>
+          <span id="userNameDisplay">User</span>
+          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+        </div>
+      </header>
+
+      <section class="content-card">
+        <h3>Select Assessment Criteria</h3>
+        <form id="resultsFilterForm" style="margin-top: 15px;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="filterClass">Class</label>
+              <select id="filterClass" class="form-control" required></select>
+            </div>
+            <div class="form-group">
+              <label for="filterSubject">Subject</label>
+              <select id="filterSubject" class="form-control" required></select>
+            </div>
+            <div class="form-group">
+              <label for="filterTerm">Academic Term</label>
+              <select id="filterTerm" class="form-control" required>
+                <option value="Term 1">Term 1</option>
+                <option value="Term 2">Term 2</option>
+                <option value="Term 3">Term 3</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Load Class Roster</button>
+        </form>
+      </section>
+
+      <section id="resultsEntrySection" class="content-card hidden">
+        <div class="card-header-actions">
+          <h3>Enter Student Marks</h3>
+          <!-- Restrict to Head Teacher / Administrator -->
+          <button id="publishSmsBtn" class="btn btn-secondary hidden">Publish Results via SMS</button>
+        </div>
+        <div id="publishStatus" class="hidden" style="margin-bottom: 15px; font-weight: bold; color: var(--primary-color);"></div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student ID</th>
+                <th>Full Name</th>
+                <th>Score (%)</th>
+                <th>Calculated Grade</th>
+                <th>Remark</th>
+              </tr>
+            </thead>
+            <tbody id="resultsTableBody"></tbody>
+          </table>
+        </div>
+        <button id="saveResultsBtn" class="btn btn-primary" style="margin-top: 20px;">Save Term Marks</button>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/sms.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management - STS Smart School</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>STS Smart School</h2>
+        <span>Star Tech Solutions</span>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li class="active"><a href="students.html">Students</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="subjects.html">Subjects</a></li>
+        <li><a href="results.html">Results Management</a></li>
+        <li><a href="reports.html">Report Cards</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h3>Student Management</h3>
+        <div class="user-profile">
+          <span class="user-badge" id="userRoleDisplay">ADMIN</span>
+          <span id="userNameDisplay">User</span>
+          <a href="#" id="logoutBtn" class="btn btn-sm btn-danger">Logout</a>
+        </div>
+      </header>
+
+      <section class="content-card">
+        <h3>Register New Student</h3>
+        <form id="studentForm" style="margin-top: 15px;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="studentId">Student ID Number</label>
+              <input type="text" id="studentId" class="form-control" placeholder="e.g. STS-2026-001" required>
+            </div>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" class="form-control" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="studentClass">Assigned Class</label>
+              <select id="studentClass" class="form-control" required>
+                <!-- Dynamic loading of Primary, Secondary & Legacy Grades -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="parentName">Parent / Guardian Name</label>
+              <input type="text" id="parentName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="parentPhone">Parent Contact Phone</label>
+              <input type="tel" id="parentPhone" class="form-control" placeholder="+260..." required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Save Student Record</button>
+        </form>
+      </section>
+
+      <section class="content-card">
+        <div class="card-header-actions">
+          <h3>Enrolled Student Directory</h3>
+          <input type="text" id="searchStudent" class="form-control" style="width: 250px;" placeholder="Search name or ID...">
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Class</th>
+                <th>Guardian Name</th>
+                <th>Contact</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody">
+              <!-- Dynamically populated via Firestore -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
