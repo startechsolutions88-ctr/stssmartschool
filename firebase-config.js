@@ -9,13 +9,13 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebas
 // Web app Firebase configuration for Star Tech Solutions
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDJYNRKv6EUqlr8-vwah830J33QAiBaxfI",
-  authDomain: "sts-smart-school.firebaseapp.com",
-  projectId: "sts-smart-school",
-  storageBucket: "sts-smart-school.firebasestorage.app",
-  messagingSenderId: "408636339931",
-  appId: "1:408636339931:web:5bb524922382aab0f87efe",
-  measurementId: "G-G3XX84VNLN"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 // Initialize Firebase Core Application
